@@ -23,7 +23,7 @@ function App() {
   };
   return (
     <div>
-      {/* <CssBaseline /> */}
+      <CssBaseline />
       <Counter />
       <Button color="primary" onClick={handleLogoutClick}>
         log out
