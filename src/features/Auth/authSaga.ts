@@ -1,11 +1,11 @@
 import { call, delay, fork, put, take } from 'redux-saga/effects';
 import { authActions, LoginPayload } from './authSlice';
 import { PayloadAction } from '@reduxjs/toolkit';
-// import { push } from 'connected-react-router';
+import { push } from 'connected-react-router';
 
 function* handleLogin(payload: LoginPayload) {
   try {
-    // yield delay(1000);
+    yield delay(1000);
     console.log('login');
     localStorage.setItem('access_token', 'fake_token');
     // yield put(
@@ -16,18 +16,18 @@ function* handleLogin(payload: LoginPayload) {
     // );
 
     // redirect to admin page
-    // yield put(push('/admin/dashboard'));
+    yield put(push('/admin/dashboard'));
   } catch (error) {
     // yield put(authActions.loginFailed(error.message));
   }
 }
 
 function* handleLogout() {
-  // yield delay(500);
+  yield delay(500);
   console.log('log out');
   localStorage.removeItem('access_token');
   // redirect to login page
-  // yield put(push('/login'));
+  yield put(push('/login'));
 }
 export function* authSaga() {
   while (true) {

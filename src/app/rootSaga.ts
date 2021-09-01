@@ -7,5 +7,5 @@ function* helloSaga() {
 }
 export default function* rootSaga() {
   // console.log('root saga');
-  yield all([helloSaga(), counterSaga(), authSaga()]);
+  yield all([authSaga(), counterSaga()]);
 }

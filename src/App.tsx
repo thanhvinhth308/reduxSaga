@@ -1,15 +1,13 @@
+import { CssBaseline } from '@material-ui/core';
 import React, { useEffect } from 'react';
-import logo from './logo.svg';
-import { Counter } from './features/counter/Counter';
-import './App.css';
-import cityApi from './api/cityApi';
 import { Route, Switch } from 'react-router-dom';
-import LoginPage from './features/Auth/pages/LoginPage';
-import { AdminLayout } from './components/Layout';
-import { NotFound, PrivateRoute } from './components/Common';
-import { CssBaseline, Button } from '@material-ui/core';
+import cityApi from './api/cityApi';
+import './App.css';
 import { useAppDispatch } from './app/hooks';
+import { NotFound, PrivateRoute } from './components/Common';
+import { AdminLayout } from './components/Layout';
 import { authActions } from './features/Auth/authSlice';
+import LoginPage from './features/Auth/pages/LoginPage';
 
 function App() {
   useEffect(() => {
@@ -23,11 +21,8 @@ function App() {
   };
   return (
     <div>
-      {/* <CssBaseline /> */}
-      <Counter />
-      <Button color="primary" onClick={handleLogoutClick}>
-        log out
-      </Button>
+      <CssBaseline />
+      {/* <Counter /> */}
       <Switch>
         <Route path="/login">
           <LoginPage />
