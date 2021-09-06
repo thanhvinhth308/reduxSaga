@@ -6,10 +6,7 @@ const studentApi = {
   getAll(params: ListParams): Promise<ListResponse<Student>> {
     const url = '/students';
     return axiosClient.get(url, {
-      params: {
-        _page: 1,
-        _limit: 10,
-      },
+      params,
     });
   },
   getById(id: string): Promise<Student> {
