@@ -8,17 +8,17 @@ function* handleLogin(payload: LoginPayload) {
     yield delay(1000);
     console.log('login');
     localStorage.setItem('access_token', 'fake_token');
-    // yield put(
-    //   authActions.loginSuccess({
-    //     id: 1,
-    //     name: 'Easy Frontend',
-    //   })
-    // );
+    yield put(
+      authActions.loginSuccess({
+        id: 1,
+        name: 'Easy Frontend',
+      })
+    );
 
     // redirect to admin page
     yield put(push('/admin/dashboard'));
   } catch (error) {
-    // yield put(authActions.loginFailed(error.message));
+    yield put(authActions.loginFailed(error.message));
   }
 }
 
@@ -26,6 +26,7 @@ function* handleLogout() {
   yield delay(500);
   console.log('log out');
   localStorage.removeItem('access_token');
+  yield put(authActions.logout());
   // redirect to login page
   yield put(push('/login'));
 }
